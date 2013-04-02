@@ -1,5 +1,7 @@
 # imgseeker
 
+[![Build Status](https://travis-ci.org/valiton/node-imgseeker.png?branch=master)](https://travis-ci.org/valiton/node-imgseeker)
+
 Finding an image for a given URL. imgseeker uses OpenGraph `og:image` as a fallback if no config for the hostname is given and og:image exists.
 
 
