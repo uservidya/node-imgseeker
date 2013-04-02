@@ -1,0 +1,42 @@
+{
+  "name": "imgseeker",
+  "description": "Finding an image for a given URL",
+  "version": "0.1.0",
+  "homepage": "https://github.com/valiton/node-imgseeker",
+  "author": {
+    "name": "Bastian Behrens",
+    "email": "bastian.behrens@valiton.com",
+    "url": "http://www.valiton.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/valiton/node-imgseeker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/valiton/node-imgseeker/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/valiton/node-imgseeker/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/imgseeker",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt": "~0.4.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "crawler": "~0.2.4",
+    "lodash": "~1.1.1"
+  }
+}
