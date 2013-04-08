@@ -88,5 +88,47 @@ exports['imgseeker'] = {
       test.equal(imgUrl, null, "null is returned because no config is given and og:image is missing and defaultImg is set to false");
       test.done();
     });
-  }
+  },
+
+  'seek with relative paths should return full url': function(test) {
+    test.expect(2);
+    zeroMock = {src: "src-image.png"};
+    attrMock = function () {
+      return;
+    };
+    imgseeker.config = {'myurl.com': '.some-class img', defaultImg: true};
+    imgseeker.seek('http://myurl.com/some/path/', function (err, imgUrl) {
+      test.equal(err, null,  "no error");
+      test.equal(imgUrl, "http://myurl.com/some/path/src-image.png", "full uri is returned because image-uri is relative");
+      test.done();
+    });
+  },
+
+  'seek with another relative path should return full url': function(test) {
+    test.expect(2);
+    zeroMock = {src: "../src-image.png"};
+    attrMock = function () {
+      return;
+    };
+    imgseeker.config = {'myurl.com': '.some-class img', defaultImg: true};
+    imgseeker.seek('http://myurl.com/some/path/', function (err, imgUrl) {
+      test.equal(err, null,  "no error");
+      test.equal(imgUrl, "http://myurl.com/some/src-image.png", "full uri is returned because image-uri is relative");
+      test.done();
+    });
+  },
+
+  'seek with another relative path and no config should return full url': function(test) {
+    test.expect(2);
+    zeroMock = {src: "../src-image.png"};
+    attrMock = function () {
+      return "../attr-image.png";
+    };
+    imgseeker.config = {defaultImg: true};
+    imgseeker.seek('http://myurl.com/some/path/', function (err, imgUrl) {
+      test.equal(err, null,  "no error");
+      test.equal(imgUrl, "http://myurl.com/some/attr-image.png", "full uri is returned because image-uri is relative");
+      test.done();
+    });
+  },
 };

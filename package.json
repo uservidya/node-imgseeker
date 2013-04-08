@@ -1,7 +1,7 @@
 {
   "name": "imgseeker",
   "description": "Finding an image for a given URL",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/valiton/node-imgseeker",
   "author": {
     "name": "Bastian Behrens",
