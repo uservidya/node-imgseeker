@@ -3,6 +3,7 @@
 var imgseeker = require('../lib/imgseeker.js');
 
 var zeroMock = {src: "http://myurl.com/src-image.png"};
+var zeroMock2 = {src: "http://myurl.com/src-image2.png"};
 var attrMock = function () {
   return "http://myurl.com/attr-image.png";
 };
@@ -76,7 +77,7 @@ exports['imgseeker'] = {
     });
   },
 
-  'seek without config and nonexisting og:image and defaultImg set to false should return null': function(test) {
+  'seek without config and nonexisting og:image and defaultImg set to false should return and error': function(test) {
     test.expect(2);
     zeroMock = {src: "http://myurl.com/src-image.png"};
     attrMock = function () {
@@ -84,7 +85,7 @@ exports['imgseeker'] = {
     };
     imgseeker.config = {defaultImg: false};
     imgseeker.seek('http://myurl.com/some/path/', function (err, imgUrl) {
-      test.equal(err, null,  "no error");
+      test.equal(err, "no image found for url http://myurl.com/some/path/",  "no error");
       test.equal(imgUrl, null, "null is returned because no config is given and og:image is missing and defaultImg is set to false");
       test.done();
     });
@@ -130,5 +131,6 @@ exports['imgseeker'] = {
       test.equal(imgUrl, "http://myurl.com/some/attr-image.png", "full uri is returned because image-uri is relative");
       test.done();
     });
-  },
+  }
+
 };
