@@ -21,6 +21,7 @@ imgseeker.seek('http://www.some-domain.com/some/path/index.html', function (err,
 ### Options reference
 
 - maxConnections: Number, Size of the worker pool (Default 10)
+- timeout: Number, in milliseconds (Default 60000)
 - defaultImg: Boolean, indicates if at least the first img on the page should be returned (Default true)
 
 ### setting the global config
@@ -79,6 +80,9 @@ imgseeker.seek('http://www.some-domain.com/some/path/index.html', specialConfig,
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+- 0.2.1
+  - make request timeout settable
 
 - 0.2.0
   - domain-configs as arrays (existing string configs will still work)
