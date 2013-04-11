@@ -20,9 +20,8 @@ imgseeker.seek('http://www.some-domain.com/some/path/index.html', function (err,
 
 ### Options reference
 
-- maxConnections: Number, Size of the worker pool (Default 10)
-- timeout: Number, in milliseconds (Default 60000)
 - defaultImg: Boolean, indicates if at least the first img on the page should be returned (Default true)
+- request: Object, all properties from [mikeal's request module](https://npmjs.org/package/request) can be used
 
 ### setting the global config
 
@@ -57,10 +56,14 @@ imgseeker.seek('some-url', {'some-url': ['.img-class']}function (err, imgUrl) {
 ## Examples
 
 ```
-// init and seek with global config (including maxConnections)
+// init and seek with global config (including some request-config)
 var imgseeker = require('imgseeker');
 imgseeker.init({
-  maxConnections: 50,
+  request: {
+    maxConnections: 50,
+    followAllRedirects: true,
+    encoding: 'utf-8'
+  },
   'www.some-domain.com': ['.some-class > img', '.another-class > img'],
   'another-domain.com': ['img']
 }).seek('http://www.some-domain.com/some/path/index.html', function (err, imgUrl)) {
