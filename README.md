@@ -85,6 +85,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 
 - 0.3.0
+  - bugfix og:images -> og:image
+
+- 0.3.0
   - make all request properties available
 
 - 0.2.1

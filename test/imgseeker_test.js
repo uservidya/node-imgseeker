@@ -3,7 +3,6 @@
 var imgseeker = require('../lib/imgseeker.js');
 
 var zeroMock = {src: "http://myurl.com/src-image.png"};
-var zeroMock2 = {src: "http://myurl.com/src-image2.png"};
 var attrMock = function () {
   return "http://myurl.com/attr-image.png";
 };
