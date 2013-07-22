@@ -30,7 +30,7 @@ __IMPORTANT__: You need to call the init-method () before seeking in an URL. The
 
 if no config for a hostname is given, imgseeker tries to fetch OpenGraphs [`og:image`](http://ogp.me/), if there is no og:image it tries to fetch the first image of the page (if defaultImg is set to true)
 
-config-values for 1 host can be provided as String or Array. If they are given as an Array, imgseeker loops over the array, and returns the first element with a working selector. if you do not want the first image, specify a zero-based index separated with a pipe in your selector (e.g. '.your-selector|1' would return the second image found for this selector)
+config-values for 1 host can be provided as String or Array. If they are given as an Array, imgseeker loops over the array, and returns the first element with a working selector (tries to get src-property and if not found a background image). if you do not want the first image, specify a zero-based index separated with a pipe in your selector (e.g. '.your-selector|1' would return the second image found for this selector)
 
 
 ```
