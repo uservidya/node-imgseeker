@@ -16,7 +16,8 @@ exports['imgseeker'] = {
       var _$ = function () {
         return {
           0: zeroMock,
-          attr: attrMock
+          attr: attrMock,
+          css: function () { return ''; }
         };
       };
       arr[0].callback(null, "", _$);
