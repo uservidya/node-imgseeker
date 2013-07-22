@@ -1,7 +1,7 @@
 {
   "name": "imgseeker",
   "description": "Finding an image for a given URL",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/valiton/node-imgseeker",
   "author": {
     "name": "Bastian Behrens",
@@ -36,7 +36,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "crawler": "~0.2.4",
-    "lodash": "~1.1.1"
+    "lodash": "~1.3.1",
+    "crawler": "~0.2.4"
   }
 }

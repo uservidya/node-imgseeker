@@ -30,7 +30,8 @@ __IMPORTANT__: You need to call the init-method () before seeking in an URL. The
 
 if no config for a hostname is given, imgseeker tries to fetch OpenGraphs [`og:image`](http://ogp.me/), if there is no og:image it tries to fetch the first image of the page (if defaultImg is set to true)
 
-config-values for 1 host can be provided as String or Array. If they are given as an Array, imgseeker loops over the array, and returns the first element with a working selector.
+config-values for 1 host can be provided as String or Array. If they are given as an Array, imgseeker loops over the array, and returns the first element with a working selector. if you do not want the first image, specify a zero-based index separated with a pipe in your selector (e.g. '.your-selector|1' would return the second image found for this selector)
+
 
 ```
 var imgseeker = require('imgseeker');
@@ -66,7 +67,7 @@ imgseeker.init({
   },
   'www.some-domain.com': ['.some-class > img', '.another-class > img'],
   'another-domain.com': ['img']
-}).seek('http://www.some-domain.com/some/path/index.html', function (err, imgUrl)) {
+}).seek('http://www.some-domain.com/some/path/index.html', function (err, imgUrl) {
   // do something with imgUrl
 });
 
@@ -77,12 +78,24 @@ var specialConfig = {
 imgseeker.seek('http://www.some-domain.com/some/path/index.html', specialConfig, function (err, imgUrl)) {
   // do something with imgUrl
 });
+
+// seek for image 2 which was found for this selector
+var specialConfig = {
+  'www.some-domain.com': ['.some-special-selector|2']
+};
+imgseeker.seek('http://www.some-domain.com/some/path/index.html', specialConfig, function (err, imgUrl)) {
+  // do something with imgUrl
+});
 ```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+- 0.3.2
+  - use background-image if obj has not a src-property
+  - add possibility to add index of image to be returned
 
 - 0.3.1
   - bugfix og:images -> og:image
